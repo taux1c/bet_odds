@@ -10,7 +10,9 @@ max_game_rounds = 500
 house_bank = 100
 player_bank = 100
 escrow = 0
-winning_percentage = 50
+winning_percentage = 40
+house_bank_fixed = house_bank
+player_bank_fixed = player_bank
 
 def play(bet):
     global house_bank, player_bank, escrow, house_wins, player_wins, house_earnings, player_earnings, game_round
@@ -75,7 +77,7 @@ def win():
 
 
 def lose():
-    global house_bank, player_bank, escrow, house_wins, player_wins, house_earnings, player_earnings
+    global house_bank, player_bank, escrow, house_wins, player_wins, house_earnings, player_earnings, house_bank_fixed, player_bank_fixed
     print("You lost.")
     try:
         house_bank += escrow
@@ -89,8 +91,8 @@ def display_stats():
     global house_wins, player_wins, house_earnings, player_earnings
     print("House wins: " + str(house_wins))
     print("Player wins: " + str(player_wins))
-    print("House earnings: " + str(house_earnings))
-    print("Player earnings: " + str(player_earnings))
+    print("House earnings: " + str(house_bank-house_bank_fixed))
+    print("Player earnings: " + str(player_bank-player_bank_fixed))
     print("You won " + str(round((player_wins / game_round) * 100, 2)) + "% of the time.")
     print("The house bank is " + str(house_bank))
     print("The player bank is " + str(player_bank))
