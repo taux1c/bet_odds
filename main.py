@@ -40,7 +40,7 @@ def checks(bet):
         print("The house doesn't have enough money to bet that much.")
         game_over()
         return False
-    if game_round > max_game_rounds:
+    if game_round >= max_game_rounds:
         print("The house has reached the maximum number of rounds.")
         game_over()
         return False
